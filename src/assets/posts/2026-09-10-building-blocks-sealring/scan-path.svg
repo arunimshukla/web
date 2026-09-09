@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" width="1080" height="420" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" role="img">
+<style>
+.n{fill:#0A0A0A;font-size:14px;font-weight:600}
+.m{fill:#5A5347;font-size:11.5px}
+.s{fill:#5A5347;font-size:10px}
+.k{fill:#5A5347;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+</style>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="#0A0A0A"/>
+  </marker>
+</defs>
+
+<text x="540" y="24" text-anchor="middle" class="k">one chunk &#183; 64 envelopes</text>
+
+<!-- 8 input envelopes -->
+<g>
+  <rect x="70"  y="40" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="190" y="40" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="310" y="40" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="430" y="40" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="550" y="40" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="670" y="40" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="790" y="40" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="910" y="40" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+</g>
+<g class="s" text-anchor="middle">
+  <text x="115" y="64">epk</text>
+  <text x="235" y="64">epk</text>
+  <text x="355" y="64">epk</text>
+  <text x="475" y="64">epk</text>
+  <text x="595" y="64">epk</text>
+  <text x="715" y="64">epk</text>
+  <text x="835" y="64">epk</text>
+  <text x="955" y="64">epk</text>
+</g>
+
+<!-- arrows down into the bottleneck -->
+<g stroke="#0A0A0A" stroke-width="1.2" marker-end="url(#a)">
+  <path d="M115 80 L115 168"/>
+  <path d="M235 80 L235 168"/>
+  <path d="M355 80 L355 168"/>
+  <path d="M475 80 L475 168"/>
+  <path d="M595 80 L595 168"/>
+  <path d="M715 80 L715 168"/>
+  <path d="M835 80 L835 168"/>
+  <path d="M955 80 L955 168"/>
+</g>
+
+<!-- the shared step: paid once per chunk -->
+<rect x="40" y="170" width="1000" height="90" rx="10" fill="#ECE8DA" stroke="#0A0A0A" stroke-width="1.6"/>
+<text x="540" y="212" text-anchor="middle" class="n">projective to affine conversion</text>
+<text x="540" y="234" text-anchor="middle" class="n">one field inversion per chunk</text>
+
+<!-- arrows down out of the bottleneck -->
+<g stroke="#0A0A0A" stroke-width="1.2" marker-end="url(#a)">
+  <path d="M115 260 L115 338"/>
+  <path d="M235 260 L235 338"/>
+  <path d="M355 260 L355 338"/>
+  <path d="M475 260 L475 338"/>
+  <path d="M595 260 L595 338"/>
+  <path d="M715 260 L715 338"/>
+  <path d="M835 260 L835 338"/>
+  <path d="M955 260 L955 338"/>
+</g>
+
+<!-- 8 individual derive-and-check steps: most reject here, at 1% hit rate -->
+<g>
+  <rect x="70"  y="340" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="190" y="340" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="310" y="340" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="430" y="340" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="550" y="340" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="670" y="340" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="790" y="340" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+  <rect x="910" y="340" width="90" height="40" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+</g>
+<g class="s" text-anchor="middle">
+  <text x="115" y="358">derive &amp;</text>
+  <text x="115" y="371">check</text>
+  <text x="235" y="358">derive &amp;</text>
+  <text x="235" y="371">check</text>
+  <text x="355" y="358">derive &amp;</text>
+  <text x="355" y="371">check</text>
+  <text x="475" y="358">derive &amp;</text>
+  <text x="475" y="371">check</text>
+  <text x="595" y="358">derive &amp;</text>
+  <text x="595" y="371">check</text>
+  <text x="715" y="358">derive &amp;</text>
+  <text x="715" y="371">check</text>
+  <text x="835" y="358">derive &amp;</text>
+  <text x="835" y="371">check</text>
+  <text x="955" y="358">derive &amp;</text>
+  <text x="955" y="371">check</text>
+</g>
+
+<line x1="20" y1="400" x2="1060" y2="400" stroke="#0A0A0A" stroke-opacity="0.12"/>
+</svg>

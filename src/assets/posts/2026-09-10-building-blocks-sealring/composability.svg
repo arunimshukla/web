@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 500" width="1080" height="500" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" role="img">
+<style>
+.n{fill:#0A0A0A;font-size:13.5px;font-weight:600}
+.k{fill:#5A5347;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.mono{fill:#0A0A0A;font-size:15px;font-weight:600;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.m{fill:#5A5347;font-size:11px}
+</style>
+
+<text x="130" y="26" text-anchor="middle" class="k">Kem</text>
+<text x="945" y="26" text-anchor="middle" class="k">Domain</text>
+
+<!-- connectors, drawn first so boxes sit on top -->
+<g stroke="#5A5347" stroke-width="1.2" fill="none">
+  <path d="M210 75 L460 240"/>
+  <path d="M210 240 L460 240"/>
+  <path d="M210 405 L460 240"/>
+  <path d="M850 65 L620 240"/>
+  <path d="M850 188 L620 240"/>
+  <path d="M850 305 L620 240"/>
+  <path d="M850 428 L620 240"/>
+</g>
+
+<!-- Kem adapters -->
+<rect x="50" y="50"  width="160" height="50" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="130" y="80" text-anchor="middle" class="n">k256</text>
+
+<rect x="50" y="215" width="160" height="50" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="130" y="245" text-anchor="middle" class="n">x25519</text>
+
+<rect x="50" y="380" width="160" height="50" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="130" y="410" text-anchor="middle" class="n">grumpkin</text>
+
+<!-- fixed core -->
+<rect x="460" y="195" width="160" height="90" rx="10" fill="#ECE8DA" stroke="#0A0A0A" stroke-width="1.7"/>
+<text x="540" y="235" text-anchor="middle" class="mono">sealring</text>
+<text x="540" y="256" text-anchor="middle" class="m">seal &#183; open &#183; scan</text>
+<text x="540" y="272" text-anchor="middle" class="m">suite v1, fixed</text>
+
+<!-- Domain consumers -->
+<rect x="850" y="40" width="190" height="50" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="945" y="70" text-anchor="middle" class="n">shielded-pool</text>
+
+<rect x="850" y="160" width="190" height="56" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="945" y="183" text-anchor="middle" class="n">shielded-pool</text>
+<text x="945" y="200" text-anchor="middle" class="n">compliance</text>
+
+<rect x="850" y="280" width="190" height="50" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="945" y="310" text-anchor="middle" class="n">custom-utxo</text>
+
+<rect x="850" y="400" width="190" height="56" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="945" y="423" text-anchor="middle" class="n">resilient-disbursement</text>
+<text x="945" y="440" text-anchor="middle" class="n">rails</text>
+
+<line x1="20" y1="480" x2="1060" y2="480" stroke="#0A0A0A" stroke-opacity="0.12"/>
+</svg>

@@ -145,6 +145,11 @@
     "category": "Standards & Protocols"
   },
   {
+    "term": "CMTAT",
+    "definition": "CMTA's open standard for tokenizing financial instruments, using a rule-engine and allowlist model rather than an identity registry. Blockchain-agnostic, with reference implementations on EVM, Tezos, Solana, and a privacy-preserving Aztec/Noir variant",
+    "category": "Standards & Protocols"
+  },
+  {
     "term": "ERC-7573",
     "definition": "Standard for conditional cross-chain settlement coordination",
     "category": "Standards & Protocols"
