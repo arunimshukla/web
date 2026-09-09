@@ -37,7 +37,7 @@ This design is pretty standard, but `sealring` makes it easier to bring your own
 
 ![The seal and open flow. A sender combines a throwaway keypair with the recipient's public key into a shared secret, derives a key, nonce, and commit tag from it, and encrypts the note. Every wallet that sees the published envelope repeats the same combination with its own secret key, recomputes the commit tag, and compares it before it ever runs the AEAD. A mismatch is skipped; a match is decrypted.](../assets/posts/2026-09-10-building-blocks-sealring/protocol-flow.svg)
 
-*Figure 1: More concretely, seal, publish, and the commit check*
+*Figure 1: seal, publish, and the commit check*
 
 ## The costs of Scanning
 
@@ -81,7 +81,7 @@ The note carries no sender signature.
 You pick two things: the curve and the note format.
 
 The `Kem` trait covers the curve: k256, x25519 and grumpkin are available out of the box.
-It is responsible encapsulation and decapsulation, returning an opaque shared secret. One byte in the envelope header records which scheme sealed it. There is no post-quantum adapter yet. Adding one would not require touching the core logic of the library. 
+It is responsible for encapsulation and decapsulation, returning an opaque shared secret. One byte in the envelope header records which scheme sealed it.
 
 The `Domain` trait covers the note format, keeping envelopes from different applications separated by a tag. 
 
@@ -100,13 +100,15 @@ let envelope =
 
 [RFC 9180](https://www.rfc-editor.org/info/rfc9180/) already standardizes the design: Hybrid Public Key Encryption. However, the APIs are shaped for one sender addressing one recipient, with no batch and no scan anywhere in the specification.
 
-Its KEM registry covers three NIST curves (P-256, P-384, P-521) plus X25519 and X448. Neither k256 nor grumpkin is on the list. A Rust implementation that follows the registry closely, the [`hpke` crate](https://docs.rs/hpke/latest/hpke/), ships four of those five classical curves alongside post-quantum KEMs. We needed different curves, a scan path, and a Note format the application defines.
+Its KEM registry covers three NIST curves (P-256, P-384, P-521) plus x25519 and x448. Neither k256 nor grumpkin is on the list. A Rust implementation that follows the registry closely, the [`hpke` crate](https://docs.rs/hpke/latest/hpke/), ships four of those five classical curves alongside post-quantum KEMs. We needed different curves, a scan path, and a Note format the application defines.
 
 Gallant, Lambert, and Vanstone published the underlying mathematical optimizations for the elliptic curve operations involved in Scanning, in [Faster Point Multiplication on Elliptic Curves with Efficient Endomorphisms](https://www.iacr.org/archive/crypto2001/21390189.pdf).
 
 ## What it does not fix
 
-Scanning still costs one decapsulation per envelope. Batching and parallelism cut the time spent on that work. There is no post-quantum adapter yet. `sealring` has been reviewed internally. An external audit is pending.
+Scanning still costs one decapsulation per envelope. Batching and parallelism cut the time spent on that work. There is no post-quantum adapter yet. Adding one would not require touching the core logic of the library. 
+
+`sealring` has been reviewed internally. An external audit is pending.
 
 
 `sealring` lives in [ethsystems/works](https://github.com/ethsystems/works), under MIT or Apache-2.0. The API is subject to change.
