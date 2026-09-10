@@ -108,6 +108,8 @@ Gallant, Lambert, and Vanstone published the underlying mathematical optimizatio
 
 Scanning still costs one decapsulation per envelope. Batching and parallelism cut the time spent on that work. There is no post-quantum adapter yet. Adding one would not require touching the core logic of the library. 
 
+HSM Integration coming soon too, to better cater to existing deployments.
+
 `sealring` has been reviewed internally. An external audit is pending.
 
 
