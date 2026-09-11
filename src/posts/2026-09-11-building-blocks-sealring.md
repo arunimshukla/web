@@ -2,7 +2,7 @@
 layout: post
 title: "Building blocks: sealring"
 description: "The code that encrypts a private payment so that one recipient can read it, and finds that payment again among thousands of others."
-date: 2026-09-11 15:00:00 +0200
+date: 2026-09-11 14:00:00 +0200
 author: "Aaryamann"
 image: ../assets/posts/2026-09-11-building-blocks-sealring/hero.png
 published: true
