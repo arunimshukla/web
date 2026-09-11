@@ -2,9 +2,9 @@
 layout: post
 title: "Building blocks: sealring"
 description: "The code that encrypts a private payment so that one recipient can read it, and finds that payment again among thousands of others."
-date: 2026-09-10 15:00:00 +0200
+date: 2026-09-11 15:00:00 +0200
 author: "Aaryamann"
-image: ../assets/posts/2026-09-10-building-blocks-sealring/hero.png
+image: ../assets/posts/2026-09-11-building-blocks-sealring/hero.png
 published: true
 tags:
   - building-blocks
@@ -35,7 +35,7 @@ The wallet checks the commit tag before attempting decryption.
 
 This design is pretty standard, but `sealring` makes it easier to bring your own Note format, choose what scheme is used to generate the shared secret, and decide the encoding/decoding scheme as well. It does not lock you into a specific format dictated by popular libraries.
 
-![The seal and open flow. A sender combines a throwaway keypair with the recipient's public key into a shared secret, derives a key, nonce, and commit tag from it, and encrypts the note. Every wallet that sees the published envelope repeats the same combination with its own secret key, recomputes the commit tag, and compares it before it ever runs the AEAD. A mismatch is skipped; a match is decrypted.](../assets/posts/2026-09-10-building-blocks-sealring/protocol-flow.svg)
+![The seal and open flow. A sender combines a throwaway keypair with the recipient's public key into a shared secret, derives a key, nonce, and commit tag from it, and encrypts the note. Every wallet that sees the published envelope repeats the same combination with its own secret key, recomputes the commit tag, and compares it before it ever runs the AEAD. A mismatch is skipped; a match is decrypted.](../assets/posts/2026-09-11-building-blocks-sealring/protocol-flow.svg)
 
 *Figure 1: seal, publish, and the commit check*
 
@@ -47,7 +47,7 @@ Decrypting every entry costs one decapsulation per envelope. On k256, the result
 
 The scan path moves fixed 64-envelope chunks through a batched version of that conversion. On k256, one inversion covers the whole chunk, using [Montgomery's trick](https://www.johndcook.com/blog/2026/01/14/montgomerys-trick/): multiply the 64 values together, invert the product once, then recover each value's inverse from it. The parallel version spreads whole chunks across multiple CPU cores at once.
 
-![A chunk of 64 envelopes moving through the scan path. Each envelope's ephemeral key is decapsulated against the recipient's secret key. The resulting points are converted from projective to affine coordinates as one batch. One field inversion is amortized across the whole chunk.](../assets/posts/2026-09-10-building-blocks-sealring/scan-path.svg)
+![A chunk of 64 envelopes moving through the scan path. Each envelope's ephemeral key is decapsulated against the recipient's secret key. The resulting points are converted from projective to affine coordinates as one batch. One field inversion is amortized across the whole chunk.](../assets/posts/2026-09-11-building-blocks-sealring/scan-path.svg)
 
 *Figure 2: On k256, one field inversion is shared across 64 envelopes. Each envelope still needs decapsulation.*
 
@@ -92,7 +92,7 @@ let envelope =
     sealring::seal::<X25519, VoucherDomain>(relay_pk, &note, &relay_id, &mut rand::rng())?;
 ```
 
-![Sealring's fixed core at the center, seal, open, and scan. On one side, the Kem trait with three curve adapters: k256, x25519, and grumpkin. On the other side, the Domain trait, instantiated differently by several PoCs, each with its own note format and domain tag.](../assets/posts/2026-09-10-building-blocks-sealring/composability.svg)
+![Sealring's fixed core at the center, seal, open, and scan. On one side, the Kem trait with three curve adapters: k256, x25519, and grumpkin. On the other side, the Domain trait, instantiated differently by several PoCs, each with its own note format and domain tag.](../assets/posts/2026-09-11-building-blocks-sealring/composability.svg)
 
 *Figure 3: one fixed core with two extension points. Several PoCs plug into it today.*
 
