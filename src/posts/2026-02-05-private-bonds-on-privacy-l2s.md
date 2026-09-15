@@ -12,6 +12,15 @@ tags:
   - noir
   - ethereum
   - proof-of-concept
+map_refs:
+  - approach-private-bonds
+  - private-bonds
+  - pattern-privacy-l2s
+  - pattern-noir-private-contracts
+  - pattern-permissionless-spend-auth
+  - pattern-shielding
+  - pattern-regulatory-disclosure-keys-proofs
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

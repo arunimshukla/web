@@ -10,6 +10,14 @@ tags:
   - building-blocks
   - note-encryption
   - open-source
+map_refs:
+  - pattern-shielding
+  - pattern-stealth-addresses
+  - pattern-recipient-derived-receive-addresses
+  - post-quantum
+  - approach-private-payments
+  - private-stablecoins
+
 ---
 
 *Part of "Building blocks", the series on the primitives for confidential systems on Ethereum. The blocks live in [ethsystems/works](https://github.com/ethsystems/works).*

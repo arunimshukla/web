@@ -10,6 +10,14 @@ tags:
   - decision-framework
   - public-vs-private
   - ethereum
+map_refs:
+  - pattern-hybrid-public-private-modes
+  - pattern-origin-locked-confidential-ledger
+  - pattern-permissioned-ledger-interoperability
+  - pattern-regulatory-disclosure-keys-proofs
+  - pattern-privacy-l2s
+  - pattern-user-controlled-viewing-keys
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

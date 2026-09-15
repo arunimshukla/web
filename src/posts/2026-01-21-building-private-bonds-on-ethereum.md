@@ -11,6 +11,13 @@ tags:
   - UTXO
   - ethereum
   - proof-of-concept
+map_refs:
+  - approach-private-bonds
+  - private-bonds
+  - pattern-shielding
+  - pattern-relay-mediated-proving
+  - pattern-zk-proof-systems
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

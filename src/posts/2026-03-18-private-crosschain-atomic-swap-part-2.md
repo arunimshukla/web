@@ -11,6 +11,14 @@ tags:
   - tee
   - nitro-enclaves
   - proof-of-concept
+map_refs:
+  - pattern-tee-based-privacy
+  - pattern-cross-chain-privacy-bridge
+  - approach-dvp-atomic-settlement
+  - pattern-verifiable-attestation
+  - pattern-tee-key-manager
+  - pattern-stealth-addresses
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

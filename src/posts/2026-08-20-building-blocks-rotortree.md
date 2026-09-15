@@ -11,6 +11,12 @@ tags:
   - merkle-tree
   - performance
   - open-source
+map_refs:
+  - pattern-shielding
+  - pattern-zk-proof-systems
+  - approach-private-payments
+  - private-stablecoins
+
 ---
 
 *First in "Building blocks", a series on the primitives that confidential systems on Ethereum keep needing. The blocks live in [ethsystems/works](https://github.com/ethsystems/works). This post is about the first of them.*

@@ -13,6 +13,15 @@ tags:
   - noir
   - zero-knowledge
   - proof-of-concept
+map_refs:
+  - pattern-shielding
+  - pattern-compliance-monitoring
+  - pattern-proof-of-innocence
+  - pattern-noir-private-contracts
+  - approach-private-payments
+  - private-stablecoins
+  - pattern-regulatory-disclosure-keys-proofs
+
 ---
 
 A shielded pool hides who paid whom, and how much. An institution needs that. Its balances and its list of counterparties are competitive information, and a public ledger publishes both to anyone who cares to look.

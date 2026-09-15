@@ -10,6 +10,11 @@ tags:
   - cypherpunks
   - ethereum
   - privacy-map
+map_refs:
+  - approach-private-payments
+  - approach-private-bonds
+  - approach-private-trade-settlement
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

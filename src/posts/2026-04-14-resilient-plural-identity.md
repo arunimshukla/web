@@ -12,6 +12,14 @@ tags:
   - sybil-resistance
   - zero-knowledge
   - proof-of-concept
+map_refs:
+  - resilient-identity-continuity
+  - approach-private-identity
+  - pattern-voprf-nullifiers
+  - private-identity
+  - pattern-verifiable-attestation
+  - pattern-zk-kyc-ml-id-erc734-735
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

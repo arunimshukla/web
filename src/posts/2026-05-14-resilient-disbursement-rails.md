@@ -13,6 +13,13 @@ tags:
   - humanitarian-aid
   - zero-knowledge
   - proof-of-concept
+map_refs:
+  - resilient-disbursement-rails
+  - approach-private-payments
+  - pattern-stealth-addresses
+  - pattern-shielding
+  - pattern-network-anonymity
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

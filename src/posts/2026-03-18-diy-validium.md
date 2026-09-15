@@ -11,6 +11,12 @@ tags:
   - risc-zero
   - ethereum
   - proof-of-concept
+map_refs:
+  - pattern-privacy-l2s
+  - pattern-zk-proof-systems
+  - pattern-forced-withdrawal
+  - approach-private-payments
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

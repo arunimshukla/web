@@ -12,6 +12,15 @@ tags:
   - zama
   - ethereum
   - proof-of-concept
+map_refs:
+  - pattern-regulatory-disclosure-keys-proofs
+  - approach-private-bonds
+  - pattern-privacy-l2s
+  - pattern-co-snark
+  - pattern-private-shared-state-fhe
+  - pattern-verifiable-dkg-threshold-decryption
+  - private-bonds
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

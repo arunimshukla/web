@@ -12,6 +12,13 @@ tags:
   - KYC
   - ethereum
   - proof-of-concept
+map_refs:
+  - private-stablecoins
+  - approach-private-payments
+  - pattern-shielding
+  - pattern-user-controlled-viewing-keys
+  - pattern-proof-of-innocence
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

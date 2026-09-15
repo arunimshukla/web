@@ -13,6 +13,14 @@ tags:
   - eip-4844
   - zero-knowledge
   - proof-of-concept
+map_refs:
+  - resilient-civic-participation
+  - approach-civic-participation
+  - pattern-forward-secure-pseudorandom-tree
+  - pattern-forward-secure-signatures
+  - pattern-blob-anchored-state-with-dispute
+  - governance
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

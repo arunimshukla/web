@@ -11,6 +11,13 @@ tags:
   - intmax
   - ethereum
   - proof-of-concept
+map_refs:
+  - private-stablecoins
+  - approach-private-payments
+  - pattern-plasma-stateless-privacy
+  - pattern-forced-withdrawal
+  - pattern-regulatory-disclosure-keys-proofs
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

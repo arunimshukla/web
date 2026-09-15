@@ -11,6 +11,14 @@ tags:
   - shielded-pools
   - stealth-addresses
   - proof-of-concept
+map_refs:
+  - pattern-stealth-addresses
+  - pattern-cross-chain-privacy-bridge
+  - approach-dvp-atomic-settlement
+  - pattern-shielding
+  - pattern-commit-and-prove
+  - approach-private-trade-settlement
+
 ---
 
 *This post was written when IPTF (now EthSystems) was at the Ethereum Foundation*

@@ -1,6 +1,13 @@
 ---
 title: "Exploring Hardened Shielded Pools"
 description: "Extending a working shielded pool with epoch nullifiers and PIR, and why private selection is the harder problem left for private payments at scale."
+map_refs:
+  - private-stablecoins
+  - approach-private-payments
+  - pattern-shielding
+  - pattern-private-information-retrieval
+  - private-payments
+  - pattern-recipient-derived-receive-addresses
 date: 2026-06-11T07:00:00-04:00
 author: "Yanis"
 image: ../assets/posts/2026-06-11-next-iteration-shielded-pools/hero.png

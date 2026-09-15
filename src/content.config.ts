@@ -238,6 +238,7 @@ const posts = defineCollection({
         image: image().optional(),
         layout: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        map_refs: z.array(z.string()).optional(),
       })
       .passthrough(),
 });
