@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 500" width="1080" height="500" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" role="img">
+<style>
+.n{fill:#0A0A0A;font-size:14px;font-weight:600}
+.m{fill:#5A5347;font-size:11.5px}
+.k{fill:#5A5347;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+</style>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="#0A0A0A"/>
+  </marker>
+</defs>
+
+<!-- row one: the accumulator reads the durable point -->
+<text x="60" y="84" class="k">merkle_log</text>
+
+<rect x="60" y="108" width="200" height="56" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="160" y="142" text-anchor="middle" class="n">chain events</text>
+
+<path d="M262 136 L316 136" stroke="#0A0A0A" stroke-width="1.5" marker-end="url(#a)"/>
+
+<rect x="320" y="108" width="200" height="56" rx="8" fill="#ECE8DA" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="420" y="142" text-anchor="middle" class="n">chainfold</text>
+
+<path d="M522 136 L636 136" stroke="#0A0A0A" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="579" y="98" text-anchor="middle" class="m">durable point</text>
+
+<rect x="640" y="108" width="260" height="56" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="770" y="142" text-anchor="middle" class="n">rotortree accumulator</text>
+
+<text x="60" y="196" class="m">leaves at or below the oldest checkpoint</text>
+
+<!-- row two: the scan runs inside the source -->
+<text x="60" y="308" class="k">shielded_wallet</text>
+
+<rect x="40" y="332" width="210" height="56" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="145" y="366" text-anchor="middle" class="n">envelopes from the pool</text>
+
+<path d="M252 360 L296 360" stroke="#0A0A0A" stroke-width="1.5" marker-end="url(#a)"/>
+
+<rect x="300" y="324" width="220" height="72" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="410" y="354" text-anchor="middle" class="n">Source</text>
+<text x="410" y="374" text-anchor="middle" class="m">sealring scan in events_in</text>
+
+<path d="M522 360 L596 360" stroke="#0A0A0A" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="559" y="316" text-anchor="middle" class="m">opened notes</text>
+
+<rect x="600" y="332" width="180" height="56" rx="8" fill="#ECE8DA" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="690" y="366" text-anchor="middle" class="n">chainfold</text>
+
+<path d="M782 360 L836 360" stroke="#0A0A0A" stroke-width="1.5" marker-end="url(#a)"/>
+
+<rect x="840" y="332" width="180" height="56" rx="8" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.5"/>
+<text x="930" y="366" text-anchor="middle" class="n">wallet fold</text>
+
+<line x1="20" y1="480" x2="1060" y2="480" stroke="#0A0A0A" stroke-opacity="0.12"/>
+</svg>

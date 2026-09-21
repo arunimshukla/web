@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" width="1080" height="420" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" role="img">
+<style>
+.n{fill:#0A0A0A;font-size:14px;font-weight:600}
+.m{fill:#5A5347;font-size:11.5px}
+</style>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="#0A0A0A"/>
+  </marker>
+</defs>
+
+<!-- the chain, the driver, the engine -->
+<rect x="40" y="86" width="130" height="52" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="105" y="117" text-anchor="middle" class="n">chain</text>
+
+<rect x="250" y="86" width="140" height="52" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="320" y="117" text-anchor="middle" class="n">driver</text>
+
+<rect x="470" y="86" width="140" height="52" rx="6" fill="#ECE8DA" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="540" y="117" text-anchor="middle" class="n">engine</text>
+
+<path d="M170 112 L244 112" fill="none" stroke="#0A0A0A" stroke-width="1.4" marker-end="url(#a)"/>
+
+<path d="M390 112 L464 112" fill="none" stroke="#0A0A0A" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="427" y="102" text-anchor="middle" class="m">batch</text>
+
+<!-- what the engine holds -->
+<rect x="700" y="34" width="170" height="44" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="785" y="61" text-anchor="middle" class="n">your fold</text>
+
+<rect x="700" y="96" width="170" height="44" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="785" y="123" text-anchor="middle" class="n">observed ring</text>
+
+<rect x="700" y="158" width="170" height="44" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="785" y="185" text-anchor="middle" class="n">checkpoint slots</text>
+
+<path d="M610 106 C650 88 660 60 694 56" fill="none" stroke="#0A0A0A" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M610 118 L694 118" fill="none" stroke="#0A0A0A" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M610 130 C650 150 660 176 694 180" fill="none" stroke="#0A0A0A" stroke-width="1.4" marker-end="url(#a)"/>
+
+<!-- the recovery path back into the driver -->
+<rect x="400" y="212" width="170" height="44" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="485" y="239" text-anchor="middle" class="n">bisect the ring</text>
+
+<path d="M534 138 L500 206" fill="none" stroke="#0A0A0A" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<text x="506" y="174" text-anchor="end" class="m">hash mismatch</text>
+
+<path d="M400 234 C348 234 326 192 322 144" fill="none" stroke="#0A0A0A" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="318" y="186" text-anchor="end" class="m">rollback</text>
+
+<!-- the durable path -->
+<rect x="620" y="308" width="160" height="48" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="700" y="332" text-anchor="middle" class="n">flusher</text>
+<text x="700" y="348" text-anchor="middle" class="m">the sink</text>
+
+<rect x="850" y="308" width="180" height="48" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="940" y="338" text-anchor="middle" class="n">snapshot store</text>
+
+<path d="M760 202 C742 248 726 274 712 302" fill="none" stroke="#0A0A0A" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="746" y="258" class="m">oldest checkpoint</text>
+
+<path d="M780 332 L844 332" fill="none" stroke="#0A0A0A" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="812" y="322" text-anchor="middle" class="m">fsync</text>
+
+<line x1="20" y1="400" x2="1060" y2="400" stroke="#0A0A0A" stroke-opacity="0.12"/>
+</svg>

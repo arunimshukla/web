@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" width="1080" height="420" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" role="img">
+<style>
+.n{fill:#0A0A0A;font-size:14px;font-weight:600}
+.m{fill:#5A5347;font-size:11.5px}
+.k{fill:#5A5347;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+</style>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="#0A0A0A"/>
+  </marker>
+  <marker id="b" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="rgba(10, 10, 10, 0.20)"/>
+  </marker>
+</defs>
+
+<text x="540" y="24" text-anchor="middle" class="k">two views of one fold</text>
+
+<!-- the timeline -->
+<line x1="80" y1="210" x2="1010" y2="210" stroke="#0A0A0A" stroke-opacity="0.35" stroke-width="1.4"/>
+<g stroke="rgba(10, 10, 10, 0.20)" stroke-width="1.2">
+  <path d="M100 204 L100 216"/><path d="M138 204 L138 216"/><path d="M176 204 L176 216"/>
+  <path d="M338 204 L338 216"/><path d="M376 204 L376 216"/>
+  <path d="M498 204 L498 216"/><path d="M536 204 L536 216"/>
+  <path d="M658 204 L658 216"/><path d="M696 204 L696 216"/>
+  <path d="M798 204 L798 216"/><path d="M836 204 L836 216"/>
+</g>
+
+<!-- the durable fold: oldest retained checkpoint -->
+<rect x="200" y="188" width="120" height="44" rx="6" fill="#ECE8DA" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="260" y="172" text-anchor="middle" class="n">durable fold</text>
+
+<!-- the three newer checkpoints -->
+<g fill="#0A0A0A">
+  <rect x="434" y="198" width="12" height="24"/>
+  <rect x="594" y="198" width="12" height="24"/>
+  <rect x="754" y="198" width="12" height="24"/>
+</g>
+
+<!-- the live fold at the cursor -->
+<rect x="870" y="188" width="120" height="44" rx="6" fill="#ECE8DA" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="930" y="216" text-anchor="middle" class="n">cursor</text>
+<text x="930" y="172" text-anchor="middle" class="n">live fold</text>
+
+<text x="260" y="248" text-anchor="middle" class="m">checkpoint</text>
+<text x="440" y="248" text-anchor="middle" class="m">checkpoint</text>
+<text x="600" y="248" text-anchor="middle" class="m">checkpoint</text>
+<text x="760" y="248" text-anchor="middle" class="m">checkpoint</text>
+<text x="260" y="263" text-anchor="middle" class="m">oldest checkpoint</text>
+
+<!-- the retained window -->
+<path d="M260 272 L260 280 L760 280 L760 272" fill="none" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="510" y="298" text-anchor="middle" class="n">four retained checkpoints</text>
+
+<!-- rollback rewinds the cursor to a checkpoint -->
+<path d="M898 184 Q760 116 606 180" fill="none" stroke="#0A0A0A" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="760" y="108" text-anchor="middle" class="m">rollback</text>
+
+<!-- the swap logic watches the live fold -->
+<rect x="890" y="38" width="170" height="44" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="975" y="65" text-anchor="middle" class="n">swap logic</text>
+<path d="M994 198 C1040 178 1030 120 988 86" fill="none" stroke="#0A0A0A" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="1000" y="118" text-anchor="end" class="m">watch channel</text>
+
+<!-- how far the durable point trails the cursor -->
+<path d="M266 318 L924 318" stroke="rgba(10, 10, 10, 0.20)" stroke-width="1.2" marker-start="url(#b)" marker-end="url(#b)"/>
+<text x="595" y="336" text-anchor="middle" class="m">lag of a little under slots times interval blocks</text>
+
+<!-- the accumulator takes leaves from the durable point -->
+<rect x="40" y="330" width="210" height="48" rx="6" fill="#FBF9F1" stroke="#0A0A0A" stroke-width="1.4"/>
+<text x="145" y="360" text-anchor="middle" class="n">rotortree accumulator</text>
+<path d="M206 234 L152 326" fill="none" stroke="#0A0A0A" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="272" y="362" class="m">leaves at or below the durable point</text>
+
+<line x1="20" y1="400" x2="1060" y2="400" stroke="#0A0A0A" stroke-opacity="0.12"/>
+</svg>

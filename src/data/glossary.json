@@ -96,7 +96,7 @@
   },
   {
     "term": "Validium",
-    "definition": "Validity proofs on L1; data availability off-chain",
+    "definition": "Validity proofs on L1. Data Availability off-chain",
     "category": "L2 Categories"
   },
   {
@@ -240,7 +240,7 @@
     "category": "Privacy Technologies"
   },
   {
-    "term": "MPC (Multi-Party Computation)",
+    "term": "MPC (multi-party computation)",
     "definition": "Cryptographic technique for joint computation without revealing inputs",
     "category": "Privacy Technologies"
   },
