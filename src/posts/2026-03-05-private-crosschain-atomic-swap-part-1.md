@@ -146,7 +146,7 @@ ZK circuits verify note formation and ownership. Shielded pools prevent double-s
 
 The coordinator is the only component not yet specified. It could be built from a Trusted Execution Environment, a multi-party computation protocol, or fully homomorphic encryption, each with different trust assumptions and performance trade-offs. In Part 2, we pick one: a TEE running in AWS Nitro Enclaves. We go inside the enclave, examine what attestation actually proves, work through the real attack surfaces, and walk through what the demo logs show.
 
-The full implementation is open source, with a detailed [specification](https://github.com/ethsystems/pocs/tree/main/pocs/approach-private-trade-settlement/tee_swap/SPEC.md) and an [interactive protocol walkthrough](/tee-protocol-page).
+The full implementation is open source, with a detailed [specification](https://github.com/ethsystems/pocs/blob/master/pocs/private-trade-settlement/tee_swap/SPEC.md) and an [interactive protocol walkthrough](/tee-protocol-page).
 
 ## References
 
