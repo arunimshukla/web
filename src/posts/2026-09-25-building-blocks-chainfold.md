@@ -2,9 +2,9 @@
 layout: post
 title: "Building blocks: chainfold"
 description: "A runtime-agnostic way to turn on-chain events into ordered local state, with reorg recovery and durable checkpoints."
-date: 2026-09-24 14:00:00 +0200
+date: 2026-09-25 14:00:00 +0200
 author: "Aaryamann"
-image: ../assets/posts/2026-09-24-building-blocks-chainfold/hero.png
+image: ../assets/posts/2026-09-25-building-blocks-chainfold/hero.png
 published: true
 tags:
   - building-blocks
@@ -57,7 +57,7 @@ And finally, **where the polling loop runs** is up to the application. The drive
 
 ## `chainfold`'s architecture
 
-![The driver reads the chain and hands a batch to the engine. The engine applies it to the fold and stores a checkpoint slot. A header hash that fails to match sends the driver to bisect the ring of observed blocks, and a rollback returns the fold to a checkpoint. The driver offers the oldest checkpoint to the flusher, which writes it to the snapshot store.](../assets/posts/2026-09-24-building-blocks-chainfold/architecture.svg)
+![The driver reads the chain and hands a batch to the engine. The engine applies it to the fold and stores a checkpoint slot. A header hash that fails to match sends the driver to bisect the ring of observed blocks, and a rollback returns the fold to a checkpoint. The driver offers the oldest checkpoint to the flusher, which writes it to the snapshot store.](../assets/posts/2026-09-25-building-blocks-chainfold/architecture.svg)
 
 *Figure 1: Data flow diagram*
 
@@ -77,7 +77,7 @@ The design here is similar to a write-ahead log.
 
 If the fork reaches beyond the retained checkpoints, _local_ recovery is no longer possible and `chainfold`'s engine escalates to a resynchronization.
 
-![One poll that finds a reorg. The cursor block's header no longer matches. The driver finds the deepest canonical block in its retained history, rolls the fold back to the newest checkpoint at or below it, and refolds forward.](../assets/posts/2026-09-24-building-blocks-chainfold/recovery.svg)
+![One poll that finds a reorg. The cursor block's header no longer matches. The driver finds the deepest canonical block in its retained history, rolls the fold back to the newest checkpoint at or below it, and refolds forward.](../assets/posts/2026-09-25-building-blocks-chainfold/recovery.svg)
 
 *Figure 2: detecting a reorg and recovering the local fold.*
 
@@ -112,7 +112,7 @@ Let's work through this with another example. [`rotortree`](/writeups/building-b
 
 Our `merkle_log` example shows this design: `rotortree` consumes the durable view.
 
-![The live fold follows the tip while checkpoints remain behind it. The durable view is below the recovery window and can be consumed by downstream state that must not be rolled back by a survivable reorg.](../assets/posts/2026-09-24-building-blocks-chainfold/two-views.svg)
+![The live fold follows the tip while checkpoints remain behind it. The durable view is below the recovery window and can be consumed by downstream state that must not be rolled back by a survivable reorg.](../assets/posts/2026-09-25-building-blocks-chainfold/two-views.svg)
 
 *Figure 3: the live and durable views exposed by the fold.*
 
@@ -169,7 +169,7 @@ There are two[^1] [runnable examples](https://github.com/ethsystems/works/tree/m
 
 `shielded_wallet` composes it with `sealring`. Chainfold supplies ordered events while sealring determines which notes belong to the wallet owner.
 
-![Two data flows from the examples. In merkle\_log, chain events pass through chainfold before the durable view reaches rotortree. In shielded\_wallet, the sealring-based source scans each poll window and passes the events the wallet key opens into the fold.](../assets/posts/2026-09-24-building-blocks-chainfold/composition.svg)
+![Two data flows from the examples. In merkle\_log, chain events pass through chainfold before the durable view reaches rotortree. In shielded\_wallet, the sealring-based source scans each poll window and passes the events the wallet key opens into the fold.](../assets/posts/2026-09-25-building-blocks-chainfold/composition.svg)
 
 *Figure 4: chainfold composed with rotortree and sealring.*
 
