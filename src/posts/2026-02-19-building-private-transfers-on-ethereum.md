@@ -29,7 +29,7 @@ Traditional banking solved this decades ago. Payment details are visible only to
 
 In a [previous post](/building-private-bonds-on-ethereum/), we built private zero-coupon bonds using a UTXO model and ZK proofs. That PoC demonstrated the cryptographic primitives: commitments, nullifiers, Merkle trees, encrypted memos. This one tackles a different problem: stablecoin payments where compliance gating, not just privacy, is the primary design constraint.
 
-This post walks through a proof-of-concept that brings banking-grade payment privacy to stablecoin transfers on Ethereum L1. The design prioritizes compliance-first privacy: only KYC-verified participants can enter the system, and viewing keys enable selective disclosure for regulators. The full implementation is [open source](https://github.com/ethsystems/pocs/pull/15), with a detailed [specification](https://github.com/ethsystems/pocs/tree/main/pocs/private-payment/shielded-pool/SPEC.md).
+This post walks through a proof-of-concept that brings banking-grade payment privacy to stablecoin transfers on Ethereum L1. The design prioritizes compliance-first privacy: only KYC-verified participants can enter the system, and viewing keys enable selective disclosure for regulators. The full implementation is [open source](https://github.com/ethsystems/pocs/pull/15), with a detailed [specification](https://github.com/ethsystems/pocs/blob/master/pocs/private-payment/shielded-pool/SPEC.md).
 
 ## The Gated Shielded Pool
 
