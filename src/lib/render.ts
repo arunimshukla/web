@@ -91,8 +91,8 @@ function fileToSlug(filename: string, prefix: string): string {
 
 interface ResolvedLink {
   route: string;     // e.g. '/patterns/foo'
-  exists: boolean;   // true if the resolved node ID is in the current graph
-  nodeId: string;    // graph node id, used to look up the real title
+  exists: boolean;   // true when the target route is known to exist
+  nodeId: string;    // graph node id when available, used to look up the real title
 }
 
 /**
@@ -114,6 +114,18 @@ function resolveMdHref(href: string): ResolvedLink | null {
 
   const filename = parts[parts.length - 1];
   const dirName = parts.length > 1 ? parts[parts.length - 2] : null;
+
+  // RFP pages intentionally sit outside the graph. Bare sibling links inside
+  // content/rfps therefore have no directory component to disambiguate them
+  // from use-cases/domains/vendors, all of which use an empty filename prefix.
+  if (!dirName && /^rfp-[^/]+\.md$/i.test(filename)) {
+    const routeSlug = toContentSlug(filename.replace(/\.md$/, ''));
+    return {
+      route: `/rfps/${routeSlug}/${suffix}`,
+      exists: true,
+      nodeId: `rfp/${routeSlug}`,
+    };
+  }
 
   // Collect every structurally plausible candidate, then prefer one that
   // resolves to a real node. Multiple dirs can share prefix='' (use-cases,
