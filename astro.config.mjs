@@ -20,6 +20,9 @@ export default defineConfig({
   // post-migration. Points straight at /writeups/ rather than hopping
   // through /blog/, so these stay single-hop.
   redirects: {
+    // Preserve the former Explore entry point while sending visitors to the
+    // existing browse view.
+    '/explore/': '/explore/browse/',
     // Galaxy explorer view relocated from /explore/galaxy/ to /map/.
     '/explore/galaxy/': '/map/',
     '/map/tree/': '/map/',
