@@ -1,0 +1,113 @@
+name: Map sync validation
+
+on:
+  push:
+    branches:
+      - validation/map-sync-20261006
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact candidate
+        uses: actions/checkout@v4
+        with:
+          ref: 891a535c78045ffbc9f2a38de3cfc28e0cf78843
+          path: candidate
+          submodules: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: candidate/package-lock.json
+
+      - name: Install candidate dependencies
+        working-directory: candidate
+        run: npm ci
+
+      - name: Build graph
+        working-directory: candidate
+        run: npm run build:graph
+
+      - name: Run tests
+        working-directory: candidate
+        run: npm test
+
+      - name: Lint content refs
+        working-directory: candidate
+        run: npm run lint:refs
+
+      - name: Build site
+        working-directory: candidate
+        run: npm run build
+
+      - name: Check diff whitespace
+        working-directory: candidate
+        run: git diff --check 3330621002207df1135787d66eb93c25792c773b..891a535c78045ffbc9f2a38de3cfc28e0cf78843
+
+      - name: Run candidate Astro check
+        working-directory: candidate
+        shell: bash
+        run: |
+          set +e
+          npm run check 2>&1 | tee /tmp/candidate-check.log
+          echo "${PIPESTATUS[0]}" > /tmp/candidate-check.status
+          exit 0
+
+      - name: Check out exact baseline
+        uses: actions/checkout@v4
+        with:
+          ref: 3330621002207df1135787d66eb93c25792c773b
+          path: baseline
+          submodules: true
+
+      - name: Install baseline dependencies
+        working-directory: baseline
+        run: npm ci
+
+      - name: Build baseline graph
+        working-directory: baseline
+        run: npm run build:graph
+
+      - name: Run baseline Astro check
+        working-directory: baseline
+        shell: bash
+        run: |
+          set +e
+          npm run check 2>&1 | tee /tmp/baseline-check.log
+          echo "${PIPESTATUS[0]}" > /tmp/baseline-check.status
+          exit 0
+
+      - name: Compare Astro diagnostics
+        shell: bash
+        run: |
+          set -euo pipefail
+          strip_ansi() {
+            sed -r 's/\x1B\[[0-9;]*[mK]//g' "$1"
+          }
+          count_diag() {
+            local kind="$1" file="$2"
+            local n
+            n="$(strip_ansi "$file" | grep -Eo -- "- [0-9]+ ${kind}s?" | tail -1 | grep -Eo '[0-9]+' || true)"
+            printf '%s' "${n:-0}"
+          }
+          be="$(count_diag error /tmp/baseline-check.log)"
+          bw="$(count_diag warning /tmp/baseline-check.log)"
+          bh="$(count_diag hint /tmp/baseline-check.log)"
+          ce="$(count_diag error /tmp/candidate-check.log)"
+          cw="$(count_diag warning /tmp/candidate-check.log)"
+          ch="$(count_diag hint /tmp/candidate-check.log)"
+          bs="$(cat /tmp/baseline-check.status)"
+          cs="$(cat /tmp/candidate-check.status)"
+          echo "ASTRO_CHECK_BASELINE status=$bs errors=$be warnings=$bw hints=$bh"
+          echo "ASTRO_CHECK_CANDIDATE status=$cs errors=$ce warnings=$cw hints=$ch"
+          if (( ce > be || cw > bw || ch > bh )); then
+            echo "Candidate introduces new Astro diagnostics."
+            exit 1
+          fi
+          echo "Candidate introduces no new Astro diagnostics by severity count."
