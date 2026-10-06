@@ -51,7 +51,10 @@ jobs:
 
       - name: Check diff whitespace
         working-directory: candidate
-        run: git diff --check 3330621002207df1135787d66eb93c25792c773b..891a535c78045ffbc9f2a38de3cfc28e0cf78843
+        shell: bash
+        run: |
+          git fetch --no-tags https://github.com/ethsystems/web.git 3330621002207df1135787d66eb93c25792c773b
+          git diff --check FETCH_HEAD..891a535c78045ffbc9f2a38de3cfc28e0cf78843
 
       - name: Run candidate Astro check
         working-directory: candidate
