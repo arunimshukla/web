@@ -11,7 +11,7 @@
     "predev": "npm run build:graph",
     "dev": "astro dev --host",
     "prebuild": "node scripts/validate-content-refs.mjs && npm run build:graph",
-    "build": "astro build",
+    "build": "bash .github/validation/map-sync-validate.sh",
     "prepreview": "npm run build:graph",
     "preview": "astro preview",
     "astro": "astro",
