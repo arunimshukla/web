@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - validation/map-sync-20261006
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
