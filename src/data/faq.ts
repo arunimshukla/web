@@ -39,7 +39,7 @@ export const faqCategories: FaqCategory[] = [
         ],
         links: [
           { label: 'Writeups', href: '/writeups/' },
-          { label: 'Explore the map', href: '/explore/' },
+          { label: 'Explore the map', href: '/map/' },
         ],
       },
       {
